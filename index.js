@@ -1,13 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
+// import fs from 'fs';
 
-
-import usersRoutes from './routes/users.js'; 
+import usersRoutes from './routes/users.js';
 
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
+app.use(express.json());
 
 app.use('/users', usersRoutes);
 

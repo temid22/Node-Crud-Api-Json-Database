@@ -1,10 +1,18 @@
+// import fs from 'fs';
+import data from '../user.json' assert {type: 'json'};
+
 const email= "${user.email}"
 
-let users = [];
+let users = data;
 
 
 export const getUsers = (req, res) => {
     
+    //  res.send(users.toString())
+    // fs.readFile("user.json", "utf-8", (err, users) => {
+    //     if (err) throw err;
+        
+    // })
     res.send(users)
 }
 
@@ -14,11 +22,15 @@ export const createUser = (req, res) => {
 
     users.push({ ...user, id: `${user.email}`});
 
-    res.send(`Waray with the name ${user.name} added to the database`);
+    // fs.writeFile("user.json", users, (err) =>{
+    //     if (err) throw err;
+    // })
+
+    res.send(`waray with the name ${user.name} added to the database`)
 }
 
 export const getUser = (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params
 
     const foundUser = users.find((user) => user.id === id)
 
