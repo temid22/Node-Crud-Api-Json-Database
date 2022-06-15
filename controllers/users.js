@@ -1,7 +1,8 @@
 // import fs from 'fs';
 import data from '../user.json' assert {type: 'json'};
+import { v4 as uuidv4 } from 'uuid';
 
-const email= "${user.email}"
+// const email= "${user.email}"
 
 let users = data;
 
@@ -20,7 +21,7 @@ export const createUser = (req, res) => {
     
     const user = req.body
 
-    users.push({ ...user, id: `${user.email}`});
+    users.push({ ...user, id: uuidv4() });
 
     // fs.writeFile("user.json", users, (err) =>{
     //     if (err) throw err;
