@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use('/users', usersRoutes);
 
-app.get('/', (req, res) => res.send('Hello from Homepage.'));
+app.get('/', (req, res) => res.send('You be mumu, from Homepage.'));
 
 app.listen(PORT, () => console.log(`Alaye my Server dey Run on port: http://localhost:${PORT}`));
 
